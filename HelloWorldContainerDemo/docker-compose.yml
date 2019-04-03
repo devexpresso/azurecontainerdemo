@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  hellorworldweb:
+    image: hellorworldweb:v1
+    build:
+      context: ..
+      dockerfile: HelloWorldContainerDemo/HelloWorldWeb/Dockerfile
+
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "7001:80"
+
+  helloworldservice:
+    image: helloworldservice:v1
+    build:
+      context: ..
+      dockerfile: HelloWorldContainerDemo/HelloWorldService/Dockerfile
+
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5001:80"
+
+
