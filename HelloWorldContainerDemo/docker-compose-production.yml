@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  hellorworldweb:
+    ports:
+      - "8888:80"
+
+  helloworldservice:
+    ports:
+      - "5555:80"
+
+
