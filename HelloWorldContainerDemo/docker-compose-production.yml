@@ -2,11 +2,13 @@ version: '3.4'
 
 services:
   hellorworldweb:
+    image: hellorworldweb
     ports:
-      - "8888:80"
+      - "7001:80"
 
   helloworldservice:
+    image: helloworldservice
     ports:
-      - "5555:80"
+      - "5001:80"
 
 

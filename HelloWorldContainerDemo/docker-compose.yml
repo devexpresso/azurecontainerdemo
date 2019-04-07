@@ -2,20 +2,15 @@ version: '3.4'
 
 services:
   hellorworldweb:
-    image: hellorworldweb:v1
     build:
       context: ..
       dockerfile: HelloWorldContainerDemo/HelloWorldWeb/Dockerfile
-    ports:
-      - "8888:80"
-
+    
   helloworldservice:
-    image: helloworldservice:v1
     build:
       context: ..
       dockerfile: HelloWorldContainerDemo/HelloWorldService/Dockerfile
-    ports:
-      - "8888:80"
+    
 
 
 
