@@ -11,9 +11,9 @@ spec:
   spec:
    containers:
    - name: helloworldwebapp
-     image: containerdemoregistry1.azurecr.io/helloworldwebapp:v1
+     image: containerdemoregistry.azurecr.io/helloworldweb:V1
      ports:
-     - containerPort: 80
+     - containerPort: 8888
    imagePullSecrets:
    - name: acr-auth
 ---
@@ -27,4 +27,35 @@ spec:
  - port: 80
  selector:
   app: helloworldwebapp
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+ name: helloworldservice
+spec:
+ replicas: 1
+ template:
+  metadata:
+   labels:
+    app: helloworldservice
+  spec:
+   containers:
+   - name: helloworldservice
+     image: containerdemoregistry.azurecr.io/helloworldservice:v1
+     ports:
+     - containerPort: 5555
+   imagePullSecrets:
+   - name: acr-auth
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: helloworldservice
+spec:
+ type: LoadBalancer
+ ports:
+ - port: 80
+ selector:
+  app: helloworldservice
 
