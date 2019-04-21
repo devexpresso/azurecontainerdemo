@@ -29,7 +29,6 @@ steps:
     azureContainerRegistry: $(azureContainerRegistry)
     dockerComposeFile: $(dockerComposeFile)
     additionalDockerComposeFiles: $(additionalDockerComposeFiles)
-    projectName: $(Build.Repository.Name)
     qualifyImageNames: true
     dockerComposeCommand: rm
 
