@@ -19,9 +19,9 @@ steps:
     releaseType: stable
 
 - script: |
-  docker-compose -f $(dockerComposeFile) -f $(additionalDockerComposeFiles) up -d
-  docker push containerdemoregistry.azurecr.io/helloworldweb:v1
-  docker push containerdemoregistry.azurecr.io/helloworldservice:v1
+    docker-compose -f $(dockerComposeFile) -f $(additionalDockerComposeFiles) up -d
+    docker push containerdemoregistry.azurecr.io/helloworldweb:v1
+    docker push containerdemoregistry.azurecr.io/helloworldservice:v1
   displayName: 'Build docker image'
 
 # - task: DockerCompose@0
