@@ -8,5 +8,7 @@ pool:
 steps:
 - task: DockerCompose@0
   displayName: 'Build docker image'
-- script: docker-compose up -d
+- script: |
+    docker-compose -f docker-compose.yml -f docker-compose-production.yml --project-directory . -p up -d
+    docker-compose -f docker-compose.yml -f docker-compose-production.yml --project-directory . down
 
