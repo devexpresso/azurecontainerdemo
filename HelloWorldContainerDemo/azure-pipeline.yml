@@ -5,8 +5,8 @@ pool:
   vmImage: 'ubuntu-16.04'
 
 variables:
-  dockerComposeFile: '**/docker-compose.yml'
-  additionalDockerComposeFiles: '**/docker-compose-production.yml'
+  dockerComposeFile: 'docker-compose.yml'
+  additionalDockerComposeFiles: 'docker-compose-production.yml'
   azureSubscriptionEndpoint: azure_service_connection
   azureContainerRegistry: containerdemoregistry
 
