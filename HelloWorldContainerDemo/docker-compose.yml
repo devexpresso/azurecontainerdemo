@@ -5,6 +5,7 @@ services:
     build:
       context: ..
       dockerfile: HelloWorldContainerDemo/HelloWorldWeb/Dockerfile
+
     
   helloworldservice:
     build:

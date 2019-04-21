@@ -2,12 +2,12 @@ version: '3.4'
 
 services:
   hellorworldweb:
-    image: hellorworldweb
+    image: containerdemoregistry.azurecr.io/helloworldweb:V1
     ports:
       - "7001:80"
 
   helloworldservice:
-    image: helloworldservice
+    image: containerdemoregistry.azurecr.io/helloworldservice:v1
     ports:
       - "5001:80"
 

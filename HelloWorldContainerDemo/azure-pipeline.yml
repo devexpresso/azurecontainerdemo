@@ -18,17 +18,20 @@ steps:
     dockerVersion: 17.09.0-ce
     releaseType: stable
 
-# - script:  docker-compose -f $(dockerComposeFile) -f $(additionalDockerComposeFiles) up -d
-#   displayName: 'Build docker image'
+- script: |
+  docker-compose -f $(dockerComposeFile) -f $(additionalDockerComposeFiles) up -d
+  docker push containerdemoregistry.azurecr.io/helloworldweb:v1
+  docker push containerdemoregistry.azurecr.io/helloworldservice:v1
+  displayName: 'Build docker image'
 
-- task: DockerCompose@0
-  displayName:  'Build and Publish images'
-  inputs:
-    action: Build and Publish Images
-    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-    azureContainerRegistry: $(azureContainerRegistry)
-    dockerComposeFile: ./docker-compose.yml
-    additionalDockerComposeFiles: ./docker-compose-production.yml
-    qualifyImageNames: true
-    dockerComposeCommand: rm
+# - task: DockerCompose@0
+#   displayName:  'Build and Publish images'
+#   inputs:
+#     action: Build and Publish Images
+#     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+#     azureContainerRegistry: $(azureContainerRegistry)
+#     dockerComposeFile: **/docker-compose.yml
+#     additionalDockerComposeFiles: **/docker-compose-production.yml
+#     qualifyImageNames: true
+#     dockerComposeCommand: rm
 
