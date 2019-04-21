@@ -11,6 +11,6 @@ steps:
     dockerVersion: 17.09.0-ce
     releaseType: stable
 
-- script:  docker-compose -f docker-compose.yml -f docker-compose-production.yml --project-directory . -p up -d
+- script:  docker-compose -f docker-compose.yml -f docker-compose-production.yml up -d
   displayName: 'Build docker image'
 
