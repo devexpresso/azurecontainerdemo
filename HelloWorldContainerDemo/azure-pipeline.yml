@@ -5,8 +5,8 @@ pool:
   vmImage: 'ubuntu-16.04'
 
 variables:
-  dockerComposeFile: '/docker-compose.yml'
-  additionalDockerComposeFiles: '/docker-compose-production.yml'
+  dockerComposeFile: '**/docker-compose.yml'
+  additionalDockerComposeFiles: '**/docker-compose-production.yml'
   azureSubscriptionEndpoint: azure_service_connection
   azureContainerRegistry: containerdemoregistry
 
@@ -27,8 +27,8 @@ steps:
     action: Build and Publish Images
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
-    dockerComposeFile: $(dockerComposeFile)
-    additionalDockerComposeFiles: $(additionalDockerComposeFiles)
+    dockerComposeFile: docker-compose.yml
+    additionalDockerComposeFiles: docker-compose-production.yml
     qualifyImageNames: true
     dockerComposeCommand: rm
 
