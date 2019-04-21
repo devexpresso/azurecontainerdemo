@@ -12,7 +12,7 @@ variables:
   helloWorldWebImageName: containerdemoregistry.azurecr.io/helloworldweb:V1
   helloWorldServiceImageName: containerdemoregistry.azurecr.io/helloworldservice:v1
   dockerLoginId: containerdemoregistry
-  dockerPassword: LHm/q1n5kPRhx+iD2I8sRI9ZdQv5whS83WILaBDm6V0=
+  dockerPassword: e46chrcXUYpYcRBPcSRy37jl=fz/DK+P
   registryServer: containerdemoregistry.azurecr.io
 
 
@@ -28,10 +28,11 @@ steps:
   displayName: 'Build docker image'
 
 - script: |
-    docker login -u $(containerdemoregistry) -p $(dockerPassword) $(registryServer)
+    docker login $(registryServer)
     docker push $(helloWorldWebImageName)
     docker push $(helloWorldServiceImageName)
   displayName: 'Push docker image to ACR'
+
 # - task: DockerCompose@0
 #   displayName:  'Build and Publish images'
 #   inputs:
