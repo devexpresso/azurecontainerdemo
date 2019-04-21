@@ -27,8 +27,8 @@ steps:
     action: Build and Publish Images
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
-    dockerComposeFile: docker-compose.yml
-    additionalDockerComposeFiles: docker-compose-production.yml
+    dockerComposeFile: ./docker-compose.yml
+    additionalDockerComposeFiles: ./docker-compose-production.yml
     qualifyImageNames: true
     dockerComposeCommand: rm
 
