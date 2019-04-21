@@ -1,6 +1,5 @@
 trigger:
   - master
-  - releases/*
 
 pool:
   vmImage: 'ubuntu-16.04'
@@ -12,9 +11,6 @@ steps:
     dockerVersion: 17.09.0-ce
     releaseType: stable
 
-- task: DockerCompose@0
+- script:  docker-compose -f docker-compose.yml -f docker-compose-production.yml --project-directory . -p up -d
   displayName: 'Build docker image'
-  inputs:
-    action: docker-compose -f docker-compose.yml -f docker-compose-production.yml --project-directory . -p up -d
-
 
