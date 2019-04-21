@@ -5,8 +5,8 @@ pool:
   vmImage: 'ubuntu-16.04'
 
 variables:
-  dockercomposefile: **/docker-compose.yml
-  dockercomposeproductionfile: **/docker-compose-production.yml
+  dockercomposefile: '**/docker-compose.yml'
+  dockercomposeproductionfile: '**/docker-compose-production.yml'
 
 steps:
 - task: DockerInstaller@0
