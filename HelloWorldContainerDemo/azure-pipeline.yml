@@ -8,4 +8,6 @@ steps:
   inputs:
     azureSubscription: 'Visual Studio Enterprise (94e96215-c87d-4548-819f-8c29436c44db)'
     azureContainerRegistry: '{"loginServer":"containerdemoregistry.azurecr.io", "id" : "/subscriptions/94e96215-c87d-4548-819f-8c29436c44db/resourceGroups/containerdemoRG/providers/Microsoft.ContainerRegistry/registries/containerdemoregistry"}'
+    dockerComposeFile: '$(System.DefaultWorkingDirectory)/_devexpresso_azurecontainerdemo/HelloWorldContainerDemo/docker-compose.yml'
+    additionalDockerComposeFiles: '$(System.DefaultWorkingDirectory)/_devexpresso_azurecontainerdemo/HelloWorldContainerDemo/docker-compose-production.yml'
     dockerComposeCommand: 'rm --all'
