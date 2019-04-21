@@ -27,7 +27,7 @@ steps:
     docker-compose -f $(dockerComposeFile) -f $(additionalDockerComposeFiles) up -d
   displayName: 'Build docker image'
 
--script: |
+- script: |
     docker login -u $(containerdemoregistry) -p $(dockerPassword) $(registryServer)
     docker push $(helloWorldWebImageName)
     docker push $(helloWorldServiceImageName)
