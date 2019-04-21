@@ -12,7 +12,7 @@ steps:
     dockerVersion: 17.09.0-ce
     releaseType: stable
 
-- task: DockerCompose@1
+- task: DockerCompose@0
   displayName: 'Build docker image'
 - script: |
     docker-compose -f docker-compose.yml -f docker-compose-production.yml --project-directory . -p up -d
