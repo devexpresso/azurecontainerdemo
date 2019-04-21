@@ -6,7 +6,13 @@ pool:
   vmImage: 'ubuntu-16.04'
 
 steps:
-- task: DockerCompose@0
+- task: DockerInstaller@0
+  displayName:  'Docker Installer'
+  inputs:
+    dockerVersion: 17.09.0-ce
+    releaseType: stable
+
+- task: DockerCompose@1
   displayName: 'Build docker image'
 - script: |
     docker-compose -f docker-compose.yml -f docker-compose-production.yml --project-directory . -p up -d
