@@ -4,9 +4,10 @@ EXPOSE 80
 
 FROM microsoft/dotnet:2.2-sdk AS build
 WORKDIR /src
-COPY ["HelloWorldService/HelloWorldService.csproj", "HelloWorldService/"]
+COPY ["HelloWorldService.csproj", "HelloWorldService/"]
 RUN dotnet restore "HelloWorldService/HelloWorldService.csproj"
-COPY . .
+
+COPY . ./HelloWorldService/
 WORKDIR "/src/HelloWorldService"
 RUN dotnet build "HelloWorldService.csproj" -c Release -o /app
 
